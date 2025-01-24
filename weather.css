@@ -1,0 +1,229 @@
+.container {
+    text-align: center;
+    margin: auto;
+    background: linear-gradient(to right, hsl(100, 100%, 90%), hsl(102, 72%, 71%));
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1400px;
+    width: 100%;
+}
+
+.tabs {
+    margin: 20px 0;
+}
+
+.tab {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+}
+
+.tab:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+
+.stats {
+    margin: 20px 20px;
+    display: none;
+    text-align: left;
+}
+
+.loading {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
+}
+
+.hidden {
+    display: none;
+}
+
+.stat {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    transition: opacity 0.5s;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.stat:hover {
+    background-color: #ecf0f1;
+}
+
+
+.weather-alert h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #e74c3c; /* 警报标题颜色 */
+}
+
+.weather-alert ul {
+    list-style: none;
+    padding: 0;
+}
+
+.weather-alert li {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.weather-alert span {
+    font-weight: bold;
+    color: #2980b9; /* 警报状态颜色 */
+}
+
+/* 农业建议 */
+.agriculture-advice {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin: 30px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.agriculture-advice h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #27ae60; /* 农业建议标题颜色 */
+}
+
+.agriculture-advice p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #34495e;
+}
+
+.agriculture-advice strong {
+    color: #e67e22; /* 强调文字颜色 */
+}
+
+/* 地图示例 */
+#map {
+    width: 95%;
+    height: 400px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin: 30px 20px;
+}
+.weather-alert {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin: 30px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+}
+textarea {
+    width: 90%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.response {
+    margin: 30px 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.index-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    width: 70%;
+    margin-left: 220px;
+}
+
+.index-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.index-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.index-item:hover {
+    background-color: #f1f1f1;
+}
+
+.index-title {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.index-value {
+    font-size: 16px;
+    color: #2ecc71;
+}
+
+.index-value, .index-title {
+    flex-basis: 45%;
+}
+
+.index-item:nth-child(odd) {
+    background-color: #ecf0f1;
+}
+
+.index-item:nth-child(even) {
+    background-color: #ffffff;
+}
+
+button {
+    width: 18%;
+    padding: 10px;
+    margin:10px 0;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.response {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}

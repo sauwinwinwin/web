@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业产品数字化网页平台-天气预测</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="weather.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="popup.js" defer></script>
+    <script src="weather.js" defer></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2 style="font-size: 22px;">欢迎来到天气预测专区！</h2>
+            <p style="font-size: 15px;">我们为您提供精准的天气预测，帮助您规划每一天的活动。</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <section id="weather-info">
+        <div class="container" style="margin: 10px 10px;">
+            <h2 style="margin: 10px 10px;">天气预测</h2>
+            <p style="font-size: 18px;margin: 10px 10px;">了解不同地区的天气情况，帮助您更好地进行农业种植。</p>
+            <div class="tabs">
+                <button class="tab" data-period="week">最近七天</button>
+                <button class="tab" data-period="month">最近一个月</button>
+                <button class="tab" data-period="year">往年同期</button>
+            </div>
+            <div class="weather-data">
+                <div id="weatherStats" class="stats"></div>
+                <div id="loadingIndicator" class="loading hidden">加载中...</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="agriculture-index">
+        <h2 style="text-align: center;margin:20px 20px;">农业相关指数</h2>
+        <ul class="index-list">
+            <li class="index-item">
+                <span class="index-title">土壤湿度指数:</span>
+                <span class="index-value" id="soil-moisture">80%</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">病虫害预测:</span>
+                <span class="index-value" id="pest-prediction">中等风险</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">农作物生长条件指数:</span>
+                <span class="index-value" id="growth-condition">良好</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">气温变化趋势:</span>
+                <span class="index-value" id="temperature-trend">适宜</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">降水量预测:</span>
+                <span class="index-value" id="precipitation">30mm/周</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">光照指数:</span>
+                <span class="index-value" id="sunlight-index">强</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">土壤PH值:</span>
+                <span class="index-value" id="soil-ph">6.5</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">气候适宜度:</span>
+                <span class="index-value" id="climate-suitability">优</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">作物病害指数:</span>
+                <span class="index-value" id="crop-disease-index">低风险</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">大气污染指数:</span>
+                <span class="index-value" id="air-quality">良好</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">水源情况:</span>
+                <span class="index-value" id="water-supply">充足</span>
+            </li>
+            <li class="index-item">
+                <span class="index-title">农业劳动力指数:</span>
+                <span class="index-value" id="labor-index">足够</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 3. 气象警报 -->
+    <div class="weather-alert">
+        <h2>气象警报</h2>
+        <ul>
+            <li>暴雨预警: <span id="rain-alert">无</span></li>
+            <li>霜冻预警: <span id="frost-alert">有</span></li>
+            <li>高温预警: <span id="heat-alert">无</span></li>
+        </ul>
+    </div>
+
+    <!-- 5. 农业建议 -->
+    <div class="agriculture-advice">
+        <h2>农业建议</h2>
+        <p>根据当前天气情况，建议今天进行<strong>灌溉</strong>，并准备应对霜冻的可能性。</p>
+    </div>
+
+    <h2 style="text-align:center;margin:20px 20px;">地图示例</h2>
+    <p style="text-align:center;margin:20px 20px;">本地图展示了当前地区的土地类型分布情况，通过不同颜色或图标标记了不同的土地用途：</p>
+    <ul style="margin-left:300px;">
+        <li style="margin:10px 0;"><strong>道路区域：</strong>显示了主要的交通干道、街道以及高速公路。道路区域对于物流运输和农业机械流动至关重要。</li>
+        <li style="margin:10px 0;"><strong>住宅区：</strong>显示了主要的住宅区和市区。住宅区的扩张可能会影响农业用地的可用性。</li>
+        <li style="margin:10px 0;"><strong>绿地/公园：</strong>标注了主要的绿地、公园以及自然保护区。这些区域适合休闲和自然保护，对农业生产的影响较小。</li>
+        <li style="margin:10px 0;"><strong>开采区：</strong>显示了矿产或石油开采区。开采区可能影响土地的可耕种性，并需要特别的土地使用规划。</li>
+        <li style="margin:10px 0;"><strong>农田区域：</strong>显示了适合农业种植的土地，特别是粮食作物和其他农作物的种植区。农田区为农业生产的基础。</li>
+        <li style="margin:10px 0;"><strong>森林/林地：</strong>标注了森林和林地的分布区域，适合林业生产和生态保护。</li>
+    </ul>
+    <p style="text-align:center;margin:20px 20px;">通过这张地图，用户可以清晰了解不同土地类型的分布情况，帮助决策农业生产、城市扩展和自然资源保护。</p>
+    <div id="map"></div>
+
+    <div class="container2" style="text-align:center;margin:20px 20px;">
+        <h1 style="margin:20px 20px;">人工智能答疑</h1>
+        <textarea id="inputText" placeholder="请输入你的问题..."></textarea>
+        <button id="submitBtn">生成文本</button>
+        <div id="response" class="response"></div>
+    </div>
+</div>
+</body>
+</html>
