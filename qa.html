@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业产品数字化网页平台-在线答疑</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="qa.css">
+    <script src="popup.js" defer></script>
+    <script src="qa.js" defer></script>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2 style="font-size: 22px;">欢迎来到在线答疑专区！</h2>
+            <p style="font-size: 15px;">我们将竭诚为您解答，助您轻松解决难题！</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <section id="qa">
+        <h2 style="margin: 10px 10px;">在线答疑</h2>
+        <!-- 农民在线答疑 -->
+        <div id="farmer-qa">
+            <h2 style="font-size: 18px;margin: 10px 10px;">农民在线答疑</h2>
+            <button onclick="showCase()" style="margin: 10px 10px;">查看答疑案例</button>
+            <button onclick="addNewQuestion()" style="margin: 10px 10px;">增加新的疑问</button>
+            <button onclick="selectExistingQuestion()" style="margin: 10px 10px;">选择已有问题进行解答</button>
+            <div id="farmer-cases" class="case-list"></div>
+        </div>
+
+        <!-- 专家在线答疑 -->
+        <div id="expert-qa">
+            <h2 style="font-size: 18px;margin: 10px 10px;">专家在线答疑</h2>
+            <select id="expert-select" style="margin: 10px 10px;">
+                <option value="expert1">专家1</option>
+                <option value="expert2">专家2</option>
+            </select>
+            <textarea id="expert-question" placeholder="提问..." style="margin: 10px 10px;"></textarea>
+            <button onclick="askExpert()" style="margin: 10px 10px;">提问</button>
+            <div id="expert-response" style="margin: 10px 10px;"></div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

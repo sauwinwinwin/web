@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业产品数字化网页平台-视频</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="video.css">
+    <script src="popup.js" defer></script>
+    <script src="video.js" defer></script>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2 style="font-size: 22px;">欢迎来到视频专区！</h2>
+            <p style="font-size: 15px;">这里是精彩内容的汇聚地，尽情享受视觉盛宴吧！</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <section id="videos">
+        <h2 style="margin: 10px 10px;">视频专区</h2>
+        <p style="font-size: 18px;margin: 10px 10px;">通过刷小视频来获取积分，兑换农产品。</p>
+    
+        <!-- 分类选择框 -->
+        <div class="category-selection" style="margin: 10px 10px;">
+            <label for="category">选择类别: </label>
+            <select id="category" onchange="filterVideos()">
+                <option value="all">所有视频</option>
+                <option value="agriculture">农业类</option>
+                <option value="promotion">宣传片类</option>
+            </select>
+        </div>
+    
+        <!-- 视频容器 -->
+        <div class="video-container" id="video-container">
+            <!-- 这里是视频项，将通过分页和类别过滤动态显示 -->
+        </div>
+    
+        <!-- 分页按钮 -->
+        <div class="pagination" style="margin: 10px 10px;">
+            <button id="prev-page" onclick="changePage(-1)">上一页</button>
+            <button id="next-page" onclick="changePage(1)">下一页</button>
+        </div>
+    
+        <div class="exchange">
+            <a href="product.html">
+                <button>兑换农产品</button>
+            </a>
+        </div>
+    </section>
+
+    <div class="search-container">
+        <h1>前往其他视频平台</h1>
+        <input type="text" id="search-keyword" placeholder="请输入搜索关键词">
+        <br>
+        <select id="platform-select" multiple>
+            <option value="bilibili">Bilibili</option>
+            <option value="douyin">抖音</option>
+            <option value="weibo">微博</option>
+        </select>
+        <br>
+        <button onclick="searchVideos()">搜索视频</button>
+    </div>
+</body>
+</html>

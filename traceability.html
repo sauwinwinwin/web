@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业产品数字化网页平台-全程追溯</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="traceability.css">
+    <script src="popup.js" defer></script>
+    <script src="trace.js" defer></script>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2 style="font-size: 22px;">欢迎来到全程追溯分区！</h2>
+            <p style="font-size: 15px;">您可以轻松了解每一件产品的来源和历史，确保品质与安全。</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <section id="traceability">
+        <h2 style="margin: 10px 10px;">全程追溯</h2>
+        <p style="font-size: 18px;margin: 10px 10px;">农产品的生长和加工全程追溯，让您放心购买。</p>
+        <div id="traceability-info">
+            <h2>农产品追溯查询</h2>
+            <label for="product" style="font-size: 18px;margin: 10px 10px;">选择农产品:</label>
+            <select id="product">
+                <option value="苹果">苹果</option>
+                <option value="香蕉">香蕉</option>
+                <option value="胡萝卜">胡萝卜</option>
+            </select>
+
+            <label for="purchaseDate" style="font-size: 18px;margin: 10px 10px;">购买时间:</label>
+            <input type="date" id="purchaseDate" />
+
+            <button id="traceButton">追溯查询</button>
+
+            <div id="result"></div>
+
+            <h3>添加新农产品信息</h3>
+            <label for="newProduct" style="font-size: 18px;margin: 10px 10px;">农产品名称:</label>
+            <input type="text" id="newProduct" />
+
+            <label for="newInfo" style="font-size: 18px;margin: 10px 10px;">农产品信息:</label>
+            <input type="text" id="newInfo" />
+
+            <button id="addProductButton">添加农产品信息</button>
+
+            <h3>更新农产品信息</h3>
+            <label for="updateProduct" style="font-size: 18px;margin: 10px 10px;">选择农产品:</label>
+            <select id="updateProduct">
+                <option value="苹果">苹果</option>
+                <option value="香蕉">香蕉</option>
+                <option value="胡萝卜">胡萝卜</option>
+            </select>
+
+            <label for="updateInfo" style="font-size: 18px;margin: 10px 10px;">新农产品信息:</label>
+            <input type="text" id="updateInfo" />
+
+            <button id="updateProductButton">更新农产品信息</button>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业产品数字化网页平台-购买预测</title>
+    <link rel="stylesheet" href="prediction.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="background.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js" defer></script>
+    <script src="predict.js" defer></script>
+    <script src="popup.js" defer></script>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2 style="font-size: 22px;">欢迎来到购买预测专区！</h2>
+            <p style="font-size: 15px;">您可以轻松掌握市场趋势，精准预测未来购物需求。</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <section id="prediction">
+        <h2 style="margin: 10px 10px;">购买预测</h2>
+        <br>
+        <p style="font-size: 18px;margin: 10px 10px;">查看往年购买者的统计图，预测明年应该种植的农产品。</p>
+        <br>
+        <div id="chart" style="margin: 10px 100px;"></div>
+    </section>
+
+    <div id="data-table-section">
+        <h2 style="margin: 10px 10px;">数据表格</h2>
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>产品名称</th>
+                    <th>历史销售数据</th>
+                    <th>产品类别</th>
+                    <th>销售趋势</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>有机苹果</td>
+                    <td>1500</td>
+                    <td>水果</td>
+                    <td>上升</td>
+                </tr>
+                <tr>
+                    <td>新鲜香蕉</td>
+                    <td>1200</td>
+                    <td>水果</td>
+                    <td>平稳</td>
+                </tr>
+                <tr>
+                    <td>多汁橙子</td>
+                    <td>800</td>
+                    <td>水果</td>
+                    <td>下降</td>
+                </tr>
+                <tr>
+                    <td>绿色奇异果</td>
+                    <td>1300</td>
+                    <td>水果</td>
+                    <td>上升</td>
+                </tr>
+                <tr>
+                    <td>甜蜜葡萄</td>
+                    <td>900</td>
+                    <td>水果</td>
+                    <td>平稳</td>
+                </tr>
+                <tr>
+                    <td>香甜芒果</td>
+                    <td>2800</td>
+                    <td>水果</td>
+                    <td>下降</td>
+                </tr>
+                <tr>
+                    <td>清新西瓜</td>
+                    <td>780</td>
+                    <td>水果</td>
+                    <td>上升</td>
+                </tr>
+                <tr>
+                    <td>有机胡萝卜</td>
+                    <td>600</td>
+                    <td>蔬菜</td>
+                    <td>平稳</td>
+                </tr>
+                <tr>
+                    <td>新鲜菠菜</td>
+                    <td>400</td>
+                    <td>蔬菜</td>
+                    <td>下降</td>
+                </tr>
+                <tr>
+                    <td>有机土豆</td>
+                    <td>1800</td>
+                    <td>蔬菜</td>
+                    <td>下降</td>
+                </tr>
+                <tr>
+                    <td>新鲜西红柿</td>
+                    <td>700</td>
+                    <td>蔬菜</td>
+                    <td>平稳</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="filter-sort-section">
+        <h2 style="margin: 10px 10px;">筛选与排序</h2>
+        <div>
+            <label for="category-filter" style="margin: 10px 10px;">产品类别:</label>
+            <select id="category-filter">
+                <option value="all">所有</option>
+                <option value="fruit">水果</option>
+                <option value="vegetable">蔬菜</option>
+            </select>
+        </div>
+    
+        <div>
+            <label for="sort-by" style="margin: 10px 10px;">排序方式:</label>
+            <select id="sort-by">
+                <option value="sales">按销量排序</option>
+                <option value="price">按价格排序</option>
+            </select>
+        </div>
+    
+        <button id="apply-filters" style="margin: 10px 10px;">应用筛选</button>
+    </div>
+    
+    <div id="background-data-section">
+        <h2>背景数据</h2>
+        <button onclick="showSalesHistory()">查看销售历史数据</button>
+        <button onclick="showMarketInfo()">查看市场情况</button>
+    </div>
+    
+    <!-- 销售历史数据弹窗 -->
+    <div id="sales-history-modal" class="modal">
+        <div class="modal-content">
+            <h3 style="margin: 10px 10px;">销售历史数据</h3>
+            <p style="font-size: 18px;">过去几个月，我们的产品销售情况呈现出明显的波动趋势。整体来看，水果类产品的销量较为突出，尤其是“有机苹果”和“绿色奇异果”，分别以1500和1300的销量位列前茅，且销量呈上升趋势，说明消费者对有机健康食品的需求持续增长。相比之下，部分水果如“多汁橙子”和“香甜芒果”的销量有所下降，可能受到季节性波动或消费者口味变化的影响。在蔬菜类产品中，“有机土豆”表现最为抢眼，销量达到1800，且销量呈上升趋势，表明其受欢迎程度不断增加。整体来看，我们的产品销售在过去一段时间内稳定增长，但仍有些品类面临挑战，未来需加大营销力度，进一步推动销量。</p>
+            <button onclick="closeModal('sales-history-modal')">关闭</button>
+        </div>
+    </div>
+    
+    <!-- 市场情况弹窗 -->
+    <div id="market-info-modal" class="modal">
+        <div class="modal-content">
+            <h3 style="margin: 10px 10px;">市场情况</h3>
+            <p style="font-size: 18px;">目前，市场整体呈现出健康化、天然化的消费趋势，消费者对有机农产品的需求日益增加。特别是在水果和蔬菜领域，消费者更加倾向于选择无农药、无化肥的绿色食品。我们的“有机苹果”和“绿色奇异果”销量上升正符合这一趋势。然而，市场竞争也日益激烈，许多竞争对手在价格、品质和产品种类上不断进行创新。在水果类产品方面，虽然“香甜芒果”面临销量下滑，但其他水果产品如“甜蜜葡萄”保持平稳，显示出消费者对品质的稳定需求。在蔬菜领域，虽然“有机土豆”的销售情况良好，但其他同类产品的竞争较为激烈，尤其是“新鲜西红柿”和“有机胡萝卜”销售处于平稳阶段，市场尚未显现出明显的增长势头。为了在激烈的市场竞争中占据优势，我们需注重产品的差异化和品牌的推广，提升消费者的忠诚度。</p>
+            <button onclick="closeModal('market-info-modal')">关闭</button>
+        </div>
+    </div>
+    
+</body>
+</html>

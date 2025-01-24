@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业产品数字化网页平台-征集</title>
+    <link rel="stylesheet" href="recruitment.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="background.css">
+    <script src="recruitment.js" defer></script>
+    <script src="popup.js" defer></script>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2 style="font-size: 22px;">欢迎来到征集专区！</h2>
+            <p style="font-size: 15px;">我们诚邀您的参与与创意，共同推动更多精彩的诞生！</p>
+        </div>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <div id="quiz-section">
+        <button id="start-quiz">开始答题</button>
+        <div id="quiz-container" style="display: none;">
+            <div id="timer">5:00</div>
+            <form id="quiz-form">
+                <!-- 这里将动态生成题目 -->
+            </form>
+            <button id="submit-quiz">提交答案</button>
+            <button id="reset-quiz">重置答题</button>
+            <div id="quiz-result"></div>
+        </div>
+    </div>
+
+    <!-- 选手展示和投票模块 -->
+    <div id="contestant-section">
+        <button id="show-add-contestant-form">我要报名</button>
+        <div id="add-contestant-form" style="display: none;">
+            <input type="text" id="contestant-name" placeholder="选手名字">
+            <input type="text" id="contestant-id" placeholder="选手编号">
+            <input type="text" id="contestant-description" placeholder="作品介绍">
+            <input type="text" id="contestant-image" placeholder="选手图片链接">
+            <button id="add-contestant-btn">添加选手</button>
+        </div>
+        <div id="contestants-list"></div>
+        <button id="prev-page">上一页</button>
+        <button id="next-page">下一页</button>
+        <div id="page-number" style="margin: 20px 20px;"></div>
+    </div>
+</body>
+</html>

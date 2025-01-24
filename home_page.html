@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业产品数字化网页平台</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="homepage.css">
+    <script src="popup.js" defer></script>
+    <script src="showmodal.js" defer></script>
+</head>
+
+<body>
+    <div class="background"></div>
+
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2 style="font-size: 22px;">欢迎来到我们的网站！</h2>
+            <p style="font-size: 15px;">感谢您的访问，祝您浏览愉快！</p>
+        </div>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <div id="carousel">
+        <div class="slides">
+            <img class="slide" src="https://q0.itc.cn/q_70/images03/20240207/3294dddc2275413ab116e1bd602636bb.jpeg"
+                alt="海报 1">
+            <img class="slide" src="http://p7.itc.cn/images01/20230519/d8c722ea704846e391d4b81736337064.jpeg"
+                alt="海报 2">
+            <img class="slide" src="http://p6.itc.cn/q_70/images03/20200616/cb5c013261814aa08a40e61181f7da49.jpeg" alt="海报 3">
+            <img class="slide"
+                src="https://q7.itc.cn/images01/20240804/27a84623397a4e74b416be434afe017c.png"
+                alt="海报 4">
+        </div>
+        <button class="next-btn" onclick="nextSlide()">→</button>
+        <div class="dots" id="dots"></div>
+        <span class="like-icon" data-likes="0">❤️</span>
+        <span class="like-count">0</span>
+    </div>
+
+    <body>
+        <main>            
+            <section id="intro">
+                <h1>欢迎来到 <strong>乡味U选</strong> —— 农产品数字化平台</h1>
+                <p><strong>乡味U选</strong>，作为一项旨在推动乡村振兴的新型农业数字化平台，致力于为农民提供一个更加便捷、高效的销售途径，同时为广大消费者提供高品质、价格公道的农产品。我们不仅提供农产品的直接销售平台，更通过多种创新功能助力农业生产、销售、文化和历史知识的传承，助推乡村经济的可持续发展。</p>
+                
+                <h2>我们的使命</h2>
+                <p>我们通过数字化平台连接农民与消费者，帮助农民实现自产自销，提升农业生产水平；为消费者提供高质量、优价格的农产品；并通过文化和知识传播，提升社会对农业及地方文化的认同与自信。</p>
+            </section>
+          
+            <section id="features">
+                <h2>平台特色功能</h2>
+                <ul>
+                  <li><strong>农业预测系统</strong>：利用大数据分析和历史销售数据，为农民提供种植预测功能，帮助您了解未来市场趋势，确保种植决策更加科学合理。</li>
+                  <li><strong>天气预测模块</strong>：提供精准的天气预报，帮助农民根据天气变化合理安排农作物的种植、收获和防护，降低天气风险对农作物的影响。</li>
+                  <li><strong>积分奖励系统</strong>：购买者通过观看农业生产、销售和文化视频，或者通过每日签到等方式积累积分，积分可以兑换优质农产品或特色文创产品。</li>
+                  <li><strong>全程追溯模块</strong>：通过追溯系统，消费者可以时刻了解农产品从田间到餐桌的每个环节，确保产品的质量与安全，让购买者放心。</li>
+                  <li><strong>在线答疑平台</strong>：提供“农民在线答疑客户”和“专家答疑农民”两大模块，帮助大家共同进步。</li>
+                  <li><strong>农业知识大赛与征集活动</strong>：定期举办农业知识大赛，优胜者将获得积分奖励，并可以兑换农产品或文创产品。</li>
+                  <li><strong>文化与历史传承</strong>：通过视频和资料传播，帮助用户深入了解农业历史、文化，增强文化认同感。</li>
+                </ul>
+            </section>
+          
+            <section id="goal">
+                <h2>我们的目标</h2>
+                <p>通过创新的数字化平台，<strong>乡味U选</strong>不仅为农民提供了更广阔的市场，也让消费者能够享受到更加优质的农产品。我们相信，农业和乡村振兴的未来将会在数字化技术的支持下，迎来更多机遇和希望。</p>
+              </section>
+            
+              <section id="latest-news">
+                <h2>最新信息/公告</h2>
+                <ul>
+                    <li style="margin: 10px 20px;">
+                        <a href="#" onclick="showModal('2025年农业政策变化公告', '2025年农业政策的变化主要包括：\n1. 支持农业技术创新；政府将加大对农业科技创新的投入，支持智能农业、精准农业技术的应用与推广。将进一步优化农业生产资料的供应链，促进高效、节能的现代农业设备和技术在农村地区的普及。\n2. 优化农业补贴政策；农业补贴政策将向精准扶持、重点区域和新兴产业倾斜，特别是针对贫困地区的农业生产将获得更多的财政支持。对绿色农业生产、生态保护农业等领域的补贴力度将增大。\n3. 土地流转与农村土地改革；鼓励农村土地流转和规模化经营，支持农民合作社和家庭农场的进一步发展，确保土地流转的公平性和透明度。推动农村土地经营权的规范化管理，强化土地的使用效率和土地的可持续性。\n4. 农业金融改革；农业贷款政策将进一步放宽，尤其是对小农户和农业创业企业的信贷支持。国家将加大对农业保险的支持力度，帮助农民规避自然灾害带来的风险。\n5. 加大农业市场监管力度；对农业产品的市场监管将更加严格，确保食品安全和消费者权益。政府将出台措施打击农产品市场上的不正当竞争，确保农民收入的稳定增长。\n6. 推动农村文化与农业旅游结合；支持农村文化与农业旅游相结合，发展农产品的深加工和乡村旅游产业，以此增加农民的收入来源。重点发展与农业相关的文创产品，推动农业文化品牌建设。\n7. 环境保护与农业绿色发展。加强农田水利设施建设，减少农业生产对环境的负面影响，推动绿色发展模式。支持有机农业的发展，鼓励农民采用环保和可持续的农业生产方式。'); return false;">2025年农业政策变化公告</a>
+                    </li>
+                    <li style="margin: 10px 20px;">
+                        <a href="#"onclick="showModal('即将举行的农业知识大赛', '2025年农业知识大赛即将举行，比赛日期定于5月15日。比赛包括各类农业知识题目，旨在促进农业教育与创新思维的交流。参赛者将有机会获得丰厚的奖品，并能提升自己在农业领域的专业知识。比赛内容涉及农业种植技术、农业环保政策、现代农业管理等多个领域。'); return false;">即将举行的农业知识大赛</a>
+                    </li>
+                </ul>
+             </section>
+
+             <div id="myModal" class="modal">
+               <div class="modal-content">
+                  <span class="close" onclick="closeModal()">&times;</span>
+                  <h3 id="modal-title"></h3>
+                  <p id="modal-body"></p>
+               </div>
+             </div>
+            
+              <section id="forum">
+                <h2>用户互动</h2>
+                <p>在论坛中分享你的经验，提问或回答其他用户的问题。</p>
+                <a href="https://pd.qq.com/g/626241084040897318">访问论坛</a>
+              </section>
+            
+              <section id="social-media">
+                <h2>关注我们</h2>
+                <ul>
+                  <li><a href="https://search.bilibili.com/upuser?keyword=%E5%8C%97%E5%86%A5%E3%81%AE%E7%8C%AB&from_source=webtop_search&spm_id_from=333.1007&search_source=5">bilibili</a></li>
+                  <li><a href="https://www.douyin.com/root/search/beimingzhish25?aid=a4abd4f7-1f5f-406d-beaa-979322ac102d&type=general">抖音</a></li>
+                  <li><a href="https://s.weibo.com/weibo?q=Kevin_plus">微博</a></li>
+                  <li><a href="https://www.xiaohongshu.com/search_result?keyword=%25E5%258C%2597%25E5%2586%25A5%25E4%25B9%258B%25E7%25A5%259E&source=web_explore_feed&search_type=user">小红书</a></li>
+                </ul>
+              </section>
+            
+              <section id="contact-info">
+                <h2>联系我们</h2>
+                <ul>
+                  <li style="margin: 10px 20px;">客服热线：18004230380</li>
+                  <li style="margin: 10px 20px;">电子邮箱：3476598656@qq.com</li>
+                  <li style="margin: 10px 20px;">地址：沈阳市沈北新区道义南大街37号</li>
+                </ul>
+              </section>
+
+              <section id="partners">
+                <h2>我们的合作伙伴</h2>
+                <div class="partners-logos">
+                  <img src="https://img0.baidu.com/it/u=3630033936,3528206500&fm=253&fmt=auto&app=138&f=JPEG?w=300&h=300" alt="SYNU">
+                  <img src="https://img.phb123.com/uploads/allimg/220606/810-2206060940400-L-lp.png" alt="LNU">
+                  <img src="https://img1.baidu.com/it/u=3116641956,3454384213&fm=253&fmt=auto&app=138&f=JPEG?w=475&h=475" alt="SAU">
+                </div>
+              </section>
+
+        <footer>
+            <p style="margin: 10px 20px;">&copy; 2025 乡味优选. 版权所有.</p>
+        </footer>
+    </body>
+
+</html>

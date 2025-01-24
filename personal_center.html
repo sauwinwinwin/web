@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="personal_center.css">
+    <script src="personal_center.js" defer></script>
+    
+</head>
+<body>
+    <div class="background"></div>
+
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <h1>欢迎来到农业平台</h1>
+    <div id="profile">
+        <h2>个人中心</h2>
+        <img id="avatar" src="default-avatar.png" alt="头像">
+        <p><strong>姓名:</strong> <span id="profile-name">未登录</span></p>
+        <p><strong>邮箱:</strong> <span id="profile-email">未登录</span></p>
+        <p><strong>手机号:</strong> <span id="profile-phone">未登录</span></p>
+        <p><strong>积分:</strong> <span id="profile-points">0</span></p>
+        <input type="file" id="avatar-upload" accept="image/*" onchange="uploadAvatar()">
+        <button onclick="logout()">退出登录</button>
+    </div>
+
+    <div class="overlay" id="popup-overlay">
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <div id="login-form">
+                <h2>登录</h2>
+                <input type="text" id="login-email" placeholder="邮箱" required>
+                <input type="password" id="login-password" placeholder="密码" required>
+                <button onclick="login()">登录</button>
+                <p>没有账号？<a href="javascript:void(0);" onclick="showRegisterForm()">注册</a></p>
+            </div>
+
+            <div id="register-form" style="display:none;">
+                <h2>注册</h2>
+                <input type="text" id="register-name" placeholder="姓名" required>
+                <input type="email" id="register-email" placeholder="邮箱" required>
+                <input type="tel" id="register-phone" placeholder="手机号" required>
+                <input type="password" id="register-password" placeholder="密码" required>
+                <button onclick="register()">注册</button>
+                <p>已有账号？<a href="javascript:void(0);" onclick="showLoginForm()">登录</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

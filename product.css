@@ -1,0 +1,239 @@
+html {
+    scroll-behavior: smooth;  
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* CSS: 动态翻页的过渡效果 */
+#product-container {
+    display: flex;
+    overflow-x: auto; 
+    position: relative;
+    opacity: 1;
+    background: linear-gradient(to right, hsl(100, 100%, 90%), hsl(102, 72%, 71%));
+    padding: 20px;
+    margin:20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 20px;  
+    scroll-behavior: smooth;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.product-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    flex: 0 0 auto;
+    width: 250px;
+    margin:20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* 当翻页时，产品容器隐藏 */
+#product-container.hidden {
+    opacity: 0;
+}
+
+/* 可选：可以添加滑动动画效果 */
+.product-item.slide-left {
+    transform: translateX(-100%);
+}
+
+.product-item.slide-right {
+    transform: translateX(100%);
+}
+.product-item img {
+    width: 90%;
+    height: auto;
+    max-height: 200px;  /* 限制图片的最大高度 */
+    object-fit: cover;
+}
+
+.pagination {
+    margin:20px 20px;
+    text-align: center;
+}
+.pagination button {
+    padding: 10px;
+    margin: 10px 10px;
+    background-color: #4CAF50; 
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.pagination button:hover {
+    background-color: #45a049;  
+    transform: scale(1.05);  
+}
+.pagination button.disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+#add-product-button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+#add-product-button:hover {
+    background-color: #45a049; 
+}
+.add-product-form {
+    display: none; 
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 10px 10px;
+}
+.add-product-form h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+.add-product-form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #666;
+}
+.add-product-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.add-product-form button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+.add-product-form button:hover {
+    background-color: #45a049;
+}
+
+#checkout-modal, #cancel-payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.checkout-content, .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to right, hsl(100, 100%, 90%), hsl(102, 72%, 71%));
+    gap: 5px;
+    padding-bottom: 10px;
+}
+
+.product-details {
+    font-size: 14px;
+}
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+/* 微信支付弹窗位置调整 */
+#wechat-pay-modal {
+    display: none;
+    position: fixed;
+    transform: none; /* 去掉居中的 transform */
+    z-index: 1000; /* 确保微信支付弹窗在最上层 */
+}
+
+/* 弹窗内容 */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;  /* 根据需要调整宽度 */
+    max-width: 300px;  /* 控制最大宽度 */
+    margin: 0;
+}
+
+/* 弹窗遮罩层 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999; /* 确保弹窗在其他内容之上 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 隐藏按钮 */
+.close-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    position: absolute;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+button {
+    background-color: #4CAF50; /* 绿色背景，显眼且令人舒适 */
+    color: white; /* 白色文本 */
+    padding: 5px 10px; 
+    margin:10px 20px;
+    font-size: 16px; /* 设置合适的字体大小 */
+    border: none; /* 去掉默认边框 */
+    border-radius: 8px; /* 圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为可点击 */
+    transition: background-color 0.3s, transform 0.2s; /* 平滑过渡效果 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加轻微阴影，使按钮浮起来 */
+}
+
+button:hover {
+    background-color: #45a049; /* 更深的绿色，给用户反馈 */
+    transform: translateY(-2px); /* 鼠标悬停时按钮稍微向上移动 */
+}
+
+button:active {
+    background-color: #388e3c; /* 更深的绿色 */
+    transform: translateY(1px); /* 点击时按钮下移，模拟按压效果 */
+}

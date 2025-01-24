@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业产品数字化网页平台-产品</title>
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="product.css">
+    <script src="buy.js" defer></script>
+    <script src="popup.js" defer></script>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2 style="font-size: 22px;">欢迎来到产品采购专区！</h2>
+            <p style="font-size: 15px;">您可以发现最新鲜的产品，享受便捷的购物体验。</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="home_page.html" target="_blank">主页</a></li>
+            <li><a href="product.html" target="_blank">产品</a></li>
+            <li><a href="prediction.html" target="_blank">购买预测</a></li>
+            <li><a href="weather.html" target="_blank">天气预测</a></li>
+            <li><a href="video.html" target="_blank">视频专区</a></li>
+            <li><a href="traceability.html" target="_blank">全程追溯</a></li>
+            <li><a href="qa.html" target="_blank">在线答疑</a></li>
+            <li><a href="recruitment.html" target="_blank">征集</a></li>
+            <li style="margin-right: 10px;"><a href="personal_center.html" target="_blank"><img
+                        src="https://img1.baidu.com/it/u=735336095,440626591&fm=253&fmt=auto&app=138&f=JPG?w=400&h=400"
+                        alt="个人中心" style="width: 25px; height: 25px;"></a></li>
+        </ul>
+    </nav>
+
+    <section id="products">
+        <h2 style="margin: 10px 10px;">产品展示</h2>
+    
+        <button id="add-product-button" onclick="showAddProductForm()" style="margin: 10px 10px;">添加新产品</button>
+        <div class="add-product-form" id="add-product-form">
+            <h3 style="margin: 10px 10px;">添加新产品</h3>
+            <label for="product-name" style="margin: 10px 10px;">产品名称：</label><input type="text" id="product-name"><br>
+            <label for="product-image" style="margin: 10px 10px;">产品图片链接：</label><input type="text" id="product-image"><br>
+            <label for="product-price" style="margin: 10px 10px;">价格：</label><input type="number" id="product-price" step="0.01"><br>
+            <label for="product-description" style="margin: 10px 10px;">产品介绍：</label><input type="text" id="product-description"><br>
+            <button onclick="addProduct_()" style="margin: 10px 10px;">添加产品</button>
+            <button onclick="hideAddProductForm()" style="margin: 10px 10px;">取消</button>
+        </div>
+        
+        <div class="product-container" id="product-container"></div>
+    
+        <div class="pagination">
+            <button id="prev-page" onclick="changePage('prev')" class="disabled">←上一页</button>
+            <button id="next-page" onclick="changePage('next')">下一页→</button>
+        </div>
+    </section>
+
+    <section id="shopping">
+        <h2 style="margin: 10px 10px;">购物车</h2>
+        <div id="product-list"></div>
+    
+        <!-- 结算按钮 -->
+        <button id="checkout-btn" onclick="showCheckout()">结算</button>
+    
+        <!-- 结算弹窗 -->
+        <div id="checkout-modal" style="display:none;">
+            <div class="checkout-content">
+                <h3>结算</h3>
+                <div id="checkout-products"></div>
+                <p>总计: <strong id="total-price">￥0</strong></p>
+                <p>支付方式:</p>
+                <label>
+                    <input type="radio" name="payment-method" value="wechat" checked> 微信支付
+                </label>
+                <label>
+                    <input type="radio" name="payment-method" value="points"> 积分支付
+                </label>
+    
+                <div id="points-info" style="display: none;">
+                    <p><strong id="current-points"></strong></p>
+                </div>                
+                <br>
+                <button onclick="makePayment()">付款</button>
+                <button onclick="cancelPayment()">取消</button>
+            </div>
+        </div>
+
+        <div id="wechat-pay-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <h3>微信支付</h3>
+                <img src="wx.jpg" alt="微信二维码" width="200">
+                <p>请扫描二维码完成支付。</p>
+                <button onclick="confirmWechatPayment()">我已成功支付</button>
+                <button onclick="closeWechatModal()">关闭支付</button>
+            </div>
+        </div>
+
+        <!-- 取消支付确认弹窗 -->
+        <div id="cancel-payment-modal" style="display: none;">
+            <div class="modal-content">
+                <p>确定取消支付吗？</p>
+                <button onclick="confirmCancelPayment()">确定</button>
+                <button onclick="closeCancelPaymentModal()">我再想想</button>
+            </div>
+        </div>
+    </section>    
+</body>
+</html>
